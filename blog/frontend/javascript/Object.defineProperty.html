@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Object.defineProperty | Mirai 白</title>
+    <meta name="generator" content="VuePress 1.5.3">
+    
+    <meta name="description" content="欲渡黄河冰塞川 将登太行雪满山">
+    <link rel="preload" href="/assets/css/0.styles.7220a437.css" as="style"><link rel="preload" href="/assets/js/app.df6435a9.js" as="script"><link rel="preload" href="/assets/js/2.794f2bb5.js" as="script"><link rel="preload" href="/assets/js/10.c8983915.js" as="script"><link rel="prefetch" href="/assets/js/11.210d03b9.js"><link rel="prefetch" href="/assets/js/12.e85b2ac7.js"><link rel="prefetch" href="/assets/js/13.e755e22f.js"><link rel="prefetch" href="/assets/js/14.5e59b503.js"><link rel="prefetch" href="/assets/js/15.31577046.js"><link rel="prefetch" href="/assets/js/16.624af9d8.js"><link rel="prefetch" href="/assets/js/3.c457a07b.js"><link rel="prefetch" href="/assets/js/4.71e79cf6.js"><link rel="prefetch" href="/assets/js/5.d932eb16.js"><link rel="prefetch" href="/assets/js/6.02870657.js"><link rel="prefetch" href="/assets/js/7.3791ed77.js"><link rel="prefetch" href="/assets/js/8.6ed219b4.js"><link rel="prefetch" href="/assets/js/9.7091d9ca.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.7220a437.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Mirai 白</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/interview/" class="nav-link">
+  前端面试之道
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="枪械库" class="dropdown-title"><span class="title">枪械库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          前端三剑客
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/frontend/html/" class="nav-link">
+  HTML
+</a></li><li class="dropdown-subitem"><a href="/frontend/css/" class="nav-link">
+  CSS
+</a></li><li class="dropdown-subitem"><a href="/frontend/javascript/" class="nav-link router-link-active">
+  Javascript
+</a></li></ul></li><li class="dropdown-item"><h4>
+          小程序
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/mini-program/wx/" class="nav-link">
+  微信小程序
+</a></li><li class="dropdown-subitem"><a href="/mini-program/uniapp/" class="nav-link">
+  Uniapp
+</a></li></ul></li><li class="dropdown-item"><h4>
+          后端
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/backend/nodejs/" class="nav-link">
+  Nodejs
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Vue" class="dropdown-title"><span class="title">Vue</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/vue/source-code/" class="nav-link">
+  Vue 源码分析
+</a></li><li class="dropdown-item"><!----> <a href="/vue/mini-vue/" class="nav-link">
+  Mini Vue
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="犯罪记录" class="dropdown-title"><span class="title">犯罪记录</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://juejin.im/user/4089838987133496/posts" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  掘金
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://github.com/Lucifer021" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/interview/" class="nav-link">
+  前端面试之道
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="枪械库" class="dropdown-title"><span class="title">枪械库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          前端三剑客
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/frontend/html/" class="nav-link">
+  HTML
+</a></li><li class="dropdown-subitem"><a href="/frontend/css/" class="nav-link">
+  CSS
+</a></li><li class="dropdown-subitem"><a href="/frontend/javascript/" class="nav-link router-link-active">
+  Javascript
+</a></li></ul></li><li class="dropdown-item"><h4>
+          小程序
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/mini-program/wx/" class="nav-link">
+  微信小程序
+</a></li><li class="dropdown-subitem"><a href="/mini-program/uniapp/" class="nav-link">
+  Uniapp
+</a></li></ul></li><li class="dropdown-item"><h4>
+          后端
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/backend/nodejs/" class="nav-link">
+  Nodejs
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Vue" class="dropdown-title"><span class="title">Vue</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/vue/source-code/" class="nav-link">
+  Vue 源码分析
+</a></li><li class="dropdown-item"><!----> <a href="/vue/mini-vue/" class="nav-link">
+  Mini Vue
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="犯罪记录" class="dropdown-title"><span class="title">犯罪记录</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://juejin.im/user/4089838987133496/posts" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  掘金
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://github.com/Lucifer021" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Javascript</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/frontend/javascript/Object.defineProperty.html" aria-current="page" class="active sidebar-link">Object.defineProperty</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/frontend/javascript/Object.defineProperty.html#使用方法" class="sidebar-link">使用方法</a></li><li class="sidebar-sub-header"><a href="/frontend/javascript/Object.defineProperty.html#实现一个乞丐版双向绑定" class="sidebar-link">实现一个乞丐版双向绑定</a></li></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="object-defineproperty"><a href="#object-defineproperty" class="header-anchor">#</a> Object.defineProperty</h1> <p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty" target="_blank" rel="noopener noreferrer">MDN - Object.defineProperty<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <blockquote><p><code>Object.defineProperty()</code> 方法会直接在一个对象上定义一个新属性，或者修改一个对象的现有属性，并返回此对象。</p></blockquote> <h2 id="使用方法"><a href="#使用方法" class="header-anchor">#</a> 使用方法</h2> <div class="language-js extra-class"><pre class="language-js"><code>Object<span class="token punctuation">.</span><span class="token function">defineProperty</span><span class="token punctuation">(</span>obj<span class="token operator">:</span> 要定义属性的对象<span class="token punctuation">,</span> prop<span class="token operator">:</span> 要定义或修改的属性的名称<span class="token punctuation">,</span> descriptor<span class="token operator">:</span> 要定义或修改的属性描述符<span class="token punctuation">)</span>
+
+Object<span class="token punctuation">.</span><span class="token function">defineProperty</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> prop<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+	configurable<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token comment">// 是否能 delect, 是否可以重新修改属性的描述符（特性 configurable、enumerable、writable...）</span>
+	enumerable<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token comment">// 是否可枚举</span>
+	writable<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token comment">// 是否可重写</span>
+	value<span class="token operator">:</span> <span class="token keyword">undefined</span><span class="token punctuation">,</span> <span class="token comment">// 属性的值</span>
+	<span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token comment">// getter函数 获取值的时候触发 get</span>
+	<span class="token function">set</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token comment">// setter函数 设置值的时候触发 set</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 使用了 getter或 setter方法，不允许使用 writable和 value这两个属性</span>
+</code></pre></div><h2 id="实现一个乞丐版双向绑定"><a href="#实现一个乞丐版双向绑定" class="header-anchor">#</a> 实现一个乞丐版双向绑定</h2> <p>在 Vue 2.x版本中，双向绑定通过Object.defineProperty()实现对属性的劫持，在getter中收集依赖，在setter中通知更新。达到监听数据变动的目的。</p> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>text<span class="token punctuation">&quot;</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>app-input<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>app-p<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> hello <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+Object<span class="token punctuation">.</span><span class="token function">defineProperty</span><span class="token punctuation">(</span>hello<span class="token punctuation">,</span> <span class="token string">'world'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  configurable<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  enumerable<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'#app-p'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>innerHTML
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function">set</span><span class="token punctuation">(</span>newValue<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'#app-p'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> newValue
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment">/**
+ * 图方便，直接箭头键盘弹起事件。
+ * 弹起事件时更改 hello.world的值，就会触发 setter
+ */</span>
+document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'#app-input'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'keyup'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  hello<span class="token punctuation">.</span>world <span class="token operator">=</span> e<span class="token punctuation">.</span>target<span class="token punctuation">.</span>value
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p><img src="https://s1.ax1x.com/2020/08/20/d31l60.gif" alt="乞丐版双向绑定"></p> <p>上诉例子中，我们不直接参与<code>DOM</code>的操作。我们通过双向数据绑定把 <code>hello.world</code> 和 <code>&lt;p id=&quot;app-p&quot;&gt;&lt;/p&gt;</code> 连接了起来，他们之间的同步工作完全是由<code>Object.defineProperty</code>自动的，无需人为干涉.。因此我们只需关注<code>hello.world</code>的值，不需要手动操作DOM, 不需要关注数据状态的同步问题，由 <code>Object.defineProperty</code>来帮我们解决。</p> <p>那么再参考一下下面这句话👾</p> <blockquote><p>MVVM 由 Model,View,ViewModel 三部分构成，Model 层代表数据模型，也可以在Model中定义数据修改和操作的业务逻辑；View 代表UI 组件，它负责将数据模型转化成UI 展现出来，ViewModel 是一个同步View 和 Model的对象。</p> <p>在MVVM架构下，View 和 Model 之间并没有直接的联系，而是通过ViewModel进行交互，Model 和 ViewModel 之间的交互是双向的， 因此View 数据的变化会同步到Model中，而Model 数据的变化也会立即反应到View 上。</p> <p>ViewModel 通过双向数据绑定把 View 层和 Model 层连接了起来，而View 和 Model 之间的同步工作完全是自动的，无需人为干涉，因此开发者只需关注业务逻辑，不需要手动操作DOM, 不需要关注数据状态的同步问题，复杂的数据状态维护完全由 MVVM 来统一管理。</p></blockquote></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">最后更新时间:</span> <span class="time">8/20/2020, 1:16:03 AM</span></div></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.df6435a9.js" defer></script><script src="/assets/js/2.794f2bb5.js" defer></script><script src="/assets/js/10.c8983915.js" defer></script>
+  </body>
+</html>
