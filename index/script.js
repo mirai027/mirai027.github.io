@@ -56,6 +56,7 @@ function initScreenAnd3D() {
 	});
 	renderer.setPixelRatio(window.devicePixelRatio);
 	renderer.setSize(WIDTH, HEIGHT);
+	renderer.setClearColor('#39C5BB', 1.0);
 	renderer.shadowMapEnabled = true;
 
 	container = document.getElementById('world');

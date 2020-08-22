@@ -1,0 +1,87 @@
+* {
+  touch-action: pan-y;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
+    Helvetica Neue, sans-serif;
+}
+
+a,
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+}
+
+@media screen and (max-width: 1024px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+#world {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #6ecccc;
+  overflow: hidden;
+}
+
+.home-header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+}
+
+.home-link {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  padding: 0.7rem 1rem;
+  /* line-height: 2.2rem; */
+  transform: translateX(-200%);
+  animation: ease-in 1200ms show forwards;
+}
+
+@keyframes show {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.home-link .logo {
+  min-width: 3rem;
+  height: 3rem;
+  margin-right: 1rem;
+}
+
+.home-link .site-name {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.home-link .go-to-blog {
+  font-size: 1.2rem;
+  line-height: 1.2rem;
+  margin-left: 0.5rem;
+  color: #2c3e50;
+  animation: run 700ms ease-out infinite alternate;
+}
+
+@keyframes run {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(20%);
+  }
+}
