@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>手把手教你用 canvas 绘制小程序海报（一） | Mirai 白</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/blog/image/favicon.ico">
+    <meta name="description" content="欲渡黄河冰塞川 将登太行雪满山">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.a692a18e.css" as="style"><link rel="preload" href="/blog/assets/js/app.d06e34f2.js" as="script"><link rel="preload" href="/blog/assets/js/2.def54568.js" as="script"><link rel="preload" href="/blog/assets/js/24.787e6f72.js" as="script"><link rel="preload" href="/blog/assets/js/3.c36bd8ae.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.befb78dd.js"><link rel="prefetch" href="/blog/assets/js/11.4a9f7a02.js"><link rel="prefetch" href="/blog/assets/js/12.583bd588.js"><link rel="prefetch" href="/blog/assets/js/13.47997f4a.js"><link rel="prefetch" href="/blog/assets/js/14.02f4b820.js"><link rel="prefetch" href="/blog/assets/js/15.5d4fc66a.js"><link rel="prefetch" href="/blog/assets/js/16.54009aba.js"><link rel="prefetch" href="/blog/assets/js/17.3c2027f3.js"><link rel="prefetch" href="/blog/assets/js/18.9aa4e8ff.js"><link rel="prefetch" href="/blog/assets/js/19.d6718b4b.js"><link rel="prefetch" href="/blog/assets/js/20.d2937c88.js"><link rel="prefetch" href="/blog/assets/js/21.ba15058c.js"><link rel="prefetch" href="/blog/assets/js/22.a5aa5eae.js"><link rel="prefetch" href="/blog/assets/js/23.93b9a09d.js"><link rel="prefetch" href="/blog/assets/js/25.63abf50c.js"><link rel="prefetch" href="/blog/assets/js/26.db0a5ab5.js"><link rel="prefetch" href="/blog/assets/js/27.dafe08f3.js"><link rel="prefetch" href="/blog/assets/js/28.b898e804.js"><link rel="prefetch" href="/blog/assets/js/29.08cd1fed.js"><link rel="prefetch" href="/blog/assets/js/4.614cff7c.js"><link rel="prefetch" href="/blog/assets/js/5.23503a8f.js"><link rel="prefetch" href="/blog/assets/js/6.c44b5666.js"><link rel="prefetch" href="/blog/assets/js/7.174ea818.js"><link rel="prefetch" href="/blog/assets/js/8.76c3bbca.js"><link rel="prefetch" href="/blog/assets/js/9.29f49614.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.a692a18e.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><img src="/blog/image/sidebar.png" alt="Mirai 白" class="logo"> <span class="site-name can-hide">Mirai 白</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/interview/" class="nav-link">
+  顶级突破手
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="枪械库" class="dropdown-title"><span class="title">枪械库</span> <span class="arrow down"></span></button> <button type="button" aria-label="枪械库" class="mobile-dropdown-title"><span class="title">枪械库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          前端三剑客
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/frontend/html/" class="nav-link">
+  HTML
+</a></li><li class="dropdown-subitem"><a href="/blog/frontend/css/" class="nav-link">
+  CSS
+</a></li><li class="dropdown-subitem"><a href="/blog/frontend/javascript/" class="nav-link">
+  Javascript
+</a></li></ul></li><li class="dropdown-item"><h4>
+          小程序
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/mini-program/wx/" class="nav-link">
+  微信小程序
+</a></li><li class="dropdown-subitem"><a href="/blog/mini-program/uniapp/" class="nav-link router-link-active">
+  uni-app
+</a></li></ul></li><li class="dropdown-item"><h4>
+          后端
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/backend/nodejs/" class="nav-link">
+  Nodejs
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Vue" class="dropdown-title"><span class="title">Vue</span> <span class="arrow down"></span></button> <button type="button" aria-label="Vue" class="mobile-dropdown-title"><span class="title">Vue</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/vue/source-code/" class="nav-link">
+  Vue 源码分析
+</a></li><li class="dropdown-item"><!----> <a href="/blog/vue/mini-vue/" class="nav-link">
+  mini-vue
+</a></li></ul></div></div><div class="nav-item"><a href="/blog/performance/" class="nav-link">
+  前端性能优化
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="犯罪记录" class="dropdown-title"><span class="title">犯罪记录</span> <span class="arrow down"></span></button> <button type="button" aria-label="犯罪记录" class="mobile-dropdown-title"><span class="title">犯罪记录</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://juejin.im/user/4089838987133496/posts" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  掘金
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://github.com/mirai027" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blog/interview/" class="nav-link">
+  顶级突破手
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="枪械库" class="dropdown-title"><span class="title">枪械库</span> <span class="arrow down"></span></button> <button type="button" aria-label="枪械库" class="mobile-dropdown-title"><span class="title">枪械库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          前端三剑客
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/frontend/html/" class="nav-link">
+  HTML
+</a></li><li class="dropdown-subitem"><a href="/blog/frontend/css/" class="nav-link">
+  CSS
+</a></li><li class="dropdown-subitem"><a href="/blog/frontend/javascript/" class="nav-link">
+  Javascript
+</a></li></ul></li><li class="dropdown-item"><h4>
+          小程序
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/mini-program/wx/" class="nav-link">
+  微信小程序
+</a></li><li class="dropdown-subitem"><a href="/blog/mini-program/uniapp/" class="nav-link router-link-active">
+  uni-app
+</a></li></ul></li><li class="dropdown-item"><h4>
+          后端
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/blog/backend/nodejs/" class="nav-link">
+  Nodejs
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Vue" class="dropdown-title"><span class="title">Vue</span> <span class="arrow down"></span></button> <button type="button" aria-label="Vue" class="mobile-dropdown-title"><span class="title">Vue</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/vue/source-code/" class="nav-link">
+  Vue 源码分析
+</a></li><li class="dropdown-item"><!----> <a href="/blog/vue/mini-vue/" class="nav-link">
+  mini-vue
+</a></li></ul></div></div><div class="nav-item"><a href="/blog/performance/" class="nav-link">
+  前端性能优化
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="犯罪记录" class="dropdown-title"><span class="title">犯罪记录</span> <span class="arrow down"></span></button> <button type="button" aria-label="犯罪记录" class="mobile-dropdown-title"><span class="title">犯罪记录</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://juejin.im/user/4089838987133496/posts" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  掘金
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://github.com/mirai027" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>分享海报</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/mini-program/uniapp/poster.html" aria-current="page" class="active sidebar-link">手把手教你用 canvas 绘制小程序海报（一）</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/mini-program/uniapp/poster.html#绘制弧矩形-块、图片-元素" class="sidebar-link">绘制弧矩形（块、图片）元素</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/mini-program/uniapp/poster.html#绘制弧矩形路径" class="sidebar-link">绘制弧矩形路径</a></li><li class="sidebar-sub-header"><a href="/blog/mini-program/uniapp/poster.html#裁剪图片" class="sidebar-link">裁剪图片</a></li><li class="sidebar-sub-header"><a href="/blog/mini-program/uniapp/poster.html#绘制既有背景又有边框还有圆角的元素" class="sidebar-link">绘制既有背景又有边框还有圆角的元素</a></li></ul></li><li class="sidebar-sub-header"><a href="/blog/mini-program/uniapp/poster.html#绘制单、多行文字" class="sidebar-link">绘制单、多行文字</a></li><li class="sidebar-sub-header"><a href="/blog/mini-program/uniapp/poster.html#绘制海报并生成图片临时文件地址" class="sidebar-link">绘制海报并生成图片临时文件地址</a></li><li class="sidebar-sub-header"><a href="/blog/mini-program/uniapp/poster.html#保存临时文件到本地及缓存" class="sidebar-link">保存临时文件到本地及缓存</a></li><li class="sidebar-sub-header"><a href="/blog/mini-program/uniapp/poster.html#保存海报图片到相册" class="sidebar-link">保存海报图片到相册</a></li><li class="sidebar-sub-header"><a href="/blog/mini-program/uniapp/poster.html#写在最后" class="sidebar-link">写在最后</a></li><li class="sidebar-sub-header"><a href="/blog/mini-program/uniapp/poster.html#参考资料" class="sidebar-link">参考资料</a></li></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="手把手教你用-canvas-绘制小程序海报-一"><a href="#手把手教你用-canvas-绘制小程序海报-一" class="header-anchor">#</a> 手把手教你用 canvas 绘制小程序海报（一）</h1> <p>在工作中，多多少少都会遇到裂变活动的需求。裂变活动，分享海报也是必不可少的一部分。因此，了解一下生成海报的方法还是非常有必要的。</p> <p><strong>背景图+标题+内容+专属头像、昵称+引流二维码</strong>是构成海报设计的基本要素。这些基本要素，即是我们需要在代码上实现的功能。可以简单的理解为，要<strong>绘制（块、图片）元素、单、多行文字</strong>到 Canvas 中并生成一张海报图片。</p> <p>分析了要实现的功能，我的脑海浮现出了三种实现的方法：</p> <ol><li><p>解决掉提需求的人。</p> <p><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-dc2b4a8f-6ab2-47b5-b744-f0c5745aa5c0/ee888832-c4d3-4b79-b24f-2255dc4190c8.jpg" alt="表情包"></p> <p>看了看产品那沙包大的拳头，我还是先暂时放过他吧（绝对不是我怕我被他解决掉！）。</p></li> <li><p>“后端带哥，帮忙在服务端生成一下海报呗。您写完，这周的白米饭我全都包了！”</p> <p>后端带哥：<img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-dc2b4a8f-6ab2-47b5-b744-f0c5745aa5c0/dc86b6ca-239e-4727-a39f-abdf47dd8e0f.jpg"></p> <p>看来一周白米饭已经不够诱惑了，我们之间彻底玩完了。</p></li> <li><p>自己实现所有功能，确保代码的完全可控性。</p> <p>为什么不用插件呢？正所谓，授人以鱼不如授人以渔...好吧，其实就是因为一直没接触过 canvas，想学习一下。</p> <p><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-dc2b4a8f-6ab2-47b5-b744-f0c5745aa5c0/bbd05d09-1017-4a19-a932-e9cdd141a9fb.jpg" alt="表情包"></p></li></ol> <p><em>Talk is cheap, Show me the demo.</em></p> <img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-dc2b4a8f-6ab2-47b5-b744-f0c5745aa5c0/597e3dab-73bf-4838-b6d4-2d1999a2c79c.gif" alt="demo gif" style="zoom:50%;"> <h2 id="绘制弧矩形-块、图片-元素"><a href="#绘制弧矩形-块、图片-元素" class="header-anchor">#</a> 绘制弧矩形（块、图片）元素</h2> <p>小程序的实现，和在 web 端操作 css 差别可大了。主要的问题/方法是下面三个：</p> <h3 id="绘制弧矩形路径"><a href="#绘制弧矩形路径" class="header-anchor">#</a> 绘制弧矩形路径</h3> <p>canvas 并没有提供绘制圆角矩形的方法，因此我们需要以另一种方法来实现它。方法的核心是一个叫<code>CanvasContext.arcTo</code>的方法，我们先来看看它的使用的用法：</p> <blockquote><p><code>CanvasRenderingContext2D.arcTo()</code>是 Canvas 2D API 根据控制点和半径绘制圆弧路径，使用当前的描点(前一个 moveTo 或 lineTo 等函数的止点)。根据当前描点与给定的控制点 1 连接的直线，和控制点 1 与控制点 2 连接的直线，作为使用指定半径的圆的<strong>切线</strong>，画出两条切线之间的弧线路径。</p></blockquote> <p>你可以想象成，一个圆 ⚪ 拼命地往一个四角 ∠ 挤，挤到极限时，就是我们要的弧线了。<i>控制点 1 与控制点 2 连接的直线，作为使用指定半径的圆的<strong>切线</strong>，所以这条线也是会被无线延长的。</i>千言万语不如一图：</p> <p><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-dc2b4a8f-6ab2-47b5-b744-f0c5745aa5c0/7fd06df3-e982-42d3-8eb7-440b2fa30c9e.jpg" alt="acrTo示例"></p> <p>那么，一个矩形的圆角就显得如此的理所当然：</p> <p><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-dc2b4a8f-6ab2-47b5-b744-f0c5745aa5c0/faa35fa3-5d0d-42d4-a152-371c0340f5e9.jpg" alt="acrTo示例"></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 绘制弧矩形路径</span>
+<span class="token function">canvasToDrawArcRectPath</span><span class="token punctuation">(</span><span class="token parameter">ctx<span class="token punctuation">,</span> x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> w<span class="token punctuation">,</span> h<span class="token punctuation">,</span> r <span class="token operator">=</span> <span class="token number">0</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> <span class="token punctuation">[</span>
+        topLeftRadius<span class="token punctuation">,</span>
+        topRightRadius<span class="token punctuation">,</span>
+        bottomRightRadius<span class="token punctuation">,</span>
+        BottomLeftRadius
+    <span class="token punctuation">]</span> <span class="token operator">=</span> Array<span class="token punctuation">.</span><span class="token function">isArray</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span> <span class="token operator">?</span> r <span class="token operator">:</span> <span class="token punctuation">[</span>r<span class="token punctuation">,</span> r<span class="token punctuation">,</span> r<span class="token punctuation">,</span> r<span class="token punctuation">]</span>
+    <span class="token comment">/**
+       * 1. 移动到圆弧起点
+       *
+       * 2. 绘制上直线
+       * 3. 绘制右上角圆弧
+       *
+       * 4. 绘制右直线
+       * 5. 绘制右下圆弧
+       *
+       * 6. 绘制下直线
+       * 7. 绘制左下圆弧
+       *
+       * 8. 绘制左直线
+       * 9. 绘制左上圆弧
+       */</span>
+    ctx<span class="token punctuation">.</span><span class="token function">beginPath</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    ctx<span class="token punctuation">.</span><span class="token function">moveTo</span><span class="token punctuation">(</span>x <span class="token operator">+</span> topLeftRadius<span class="token punctuation">,</span> y<span class="token punctuation">)</span>
+
+    <span class="token comment">// 右上</span>
+    ctx<span class="token punctuation">.</span><span class="token function">lineTo</span><span class="token punctuation">(</span>x <span class="token operator">+</span> w <span class="token operator">-</span> topRightRadius<span class="token punctuation">,</span> y<span class="token punctuation">)</span>
+    ctx<span class="token punctuation">.</span><span class="token function">arcTo</span><span class="token punctuation">(</span>x <span class="token operator">+</span> w<span class="token punctuation">,</span> y<span class="token punctuation">,</span> x <span class="token operator">+</span> w<span class="token punctuation">,</span> y <span class="token operator">+</span> topRightRadius<span class="token punctuation">,</span> topRightRadius<span class="token punctuation">)</span>
+
+    <span class="token comment">// 右下</span>
+    ctx<span class="token punctuation">.</span><span class="token function">lineTo</span><span class="token punctuation">(</span>x <span class="token operator">+</span> w<span class="token punctuation">,</span> y <span class="token operator">+</span> h <span class="token operator">-</span> bottomRightRadius<span class="token punctuation">)</span>
+    ctx<span class="token punctuation">.</span><span class="token function">arcTo</span><span class="token punctuation">(</span>
+        x <span class="token operator">+</span> w<span class="token punctuation">,</span>
+        y <span class="token operator">+</span> h<span class="token punctuation">,</span>
+        x <span class="token operator">+</span> w <span class="token operator">-</span> bottomRightRadius<span class="token punctuation">,</span>
+        y <span class="token operator">+</span> h<span class="token punctuation">,</span>
+        bottomRightRadius
+    <span class="token punctuation">)</span>
+
+    <span class="token comment">// 左下</span>
+    ctx<span class="token punctuation">.</span><span class="token function">lineTo</span><span class="token punctuation">(</span>x <span class="token operator">+</span> BottomLeftRadius<span class="token punctuation">,</span> y <span class="token operator">+</span> h<span class="token punctuation">)</span>
+    ctx<span class="token punctuation">.</span><span class="token function">arcTo</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y <span class="token operator">+</span> h<span class="token punctuation">,</span> x<span class="token punctuation">,</span> y <span class="token operator">+</span> h <span class="token operator">-</span> BottomLeftRadius<span class="token punctuation">,</span> BottomLeftRadius<span class="token punctuation">)</span>
+
+    <span class="token comment">// 左上</span>
+    ctx<span class="token punctuation">.</span><span class="token function">lineTo</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y <span class="token operator">+</span> topLeftRadius<span class="token punctuation">)</span>
+    ctx<span class="token punctuation">.</span><span class="token function">arcTo</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> x <span class="token operator">+</span> topLeftRadius<span class="token punctuation">,</span> y<span class="token punctuation">,</span> topLeftRadius<span class="token punctuation">)</span>
+
+    ctx<span class="token punctuation">.</span><span class="token function">closePath</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="裁剪图片"><a href="#裁剪图片" class="header-anchor">#</a> 裁剪图片</h3> <p>绘制图片时，往往我们需要对原图进行剪切才能得到我们需要的样式。在我们调用<code>CanvasContext.clip()</code>进行剪切时，之后的绘图都会被限制在被剪切的区域内（不能访问画布上的其他区域）。因此在使用 <code>clip</code> 方法前通过使用 <code>save</code> 方法对当前画布区域进行保存，在裁剪完图片后通过<code>restore</code>方法对其进行恢复。</p> <div class="language-js extra-class"><pre class="language-js"><code>ctx<span class="token punctuation">.</span><span class="token function">save</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 保存画布区域</span>
+
+<span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">canvasToDrawArcRectPath</span><span class="token punctuation">(</span>ctx<span class="token punctuation">,</span> x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> width<span class="token punctuation">,</span> height<span class="token punctuation">,</span> radius<span class="token punctuation">)</span> <span class="token comment">// 绘制弧矩形路径</span>
+
+ctx<span class="token punctuation">.</span><span class="token function">clip</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 剪切成弧矩形路径</span>
+
+<span class="token keyword">const</span> <span class="token punctuation">{</span> path<span class="token operator">:</span> tempImageUrl <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">uniGetImageInfoSync</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+ctx<span class="token punctuation">.</span><span class="token function">drawImage</span><span class="token punctuation">(</span>tempImageUrl<span class="token punctuation">,</span> x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> width<span class="token punctuation">,</span> height<span class="token punctuation">)</span> <span class="token comment">// 在剪切成弧矩形路径后绘制图片</span>
+
+ctx<span class="token punctuation">.</span><span class="token function">restore</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 恢复画布区域</span>
+</code></pre></div><p><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-dc2b4a8f-6ab2-47b5-b744-f0c5745aa5c0/dc58cb9e-225c-4319-9189-3dfd10bcf91e.jpg" alt="裁剪示例"></p> <h3 id="绘制既有背景又有边框还有圆角的元素"><a href="#绘制既有背景又有边框还有圆角的元素" class="header-anchor">#</a> 绘制既有背景又有边框还有圆角的元素</h3> <p>当图片既有背景又有边框又有圆角时，我们就需要以一种取巧的方法来实现：“叠罗汉”。</p> <p>因为 canvas 的&quot;图层&quot;遵循先来<strong>后来居上</strong>原则，后绘制的会盖在先绘制的&quot;图层&quot;上。所以，我们要按顺序的：</p> <ol><li>绘制边框并填充</li> <li>绘制背景并填充</li> <li>绘制块、图片元素</li></ol> <p><em><code>CanvasContext.strokeRect</code>能更好得达到绘制边框功能，但它无法设置圆角 ，所以不使用。</em></p> <p>绘制出来的效果如图：</p> <p><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-dc2b4a8f-6ab2-47b5-b744-f0c5745aa5c0/6bf4cb21-5926-477a-8fa2-8add9c947b9c.gif" alt="表情包"></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 绘制块元素</span>
+<span class="token function">canvasToDrawBlock</span><span class="token punctuation">(</span><span class="token parameter">ctx<span class="token punctuation">,</span> params</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token parameter">resolve</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> <span class="token punctuation">{</span>
+            x<span class="token punctuation">,</span>
+            y<span class="token punctuation">,</span>
+            url<span class="token punctuation">,</span>
+            width<span class="token punctuation">,</span>
+            height<span class="token punctuation">,</span>
+            radius<span class="token punctuation">,</span>
+            border<span class="token punctuation">,</span>
+            borderColor<span class="token punctuation">,</span>
+            backgroundColor
+        <span class="token punctuation">}</span> <span class="token operator">=</span> params
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>border<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            ctx<span class="token punctuation">.</span><span class="token function">setFillStyle</span><span class="token punctuation">(</span>borderColor <span class="token operator">??</span> <span class="token string">'#fff'</span><span class="token punctuation">)</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">canvasToDrawArcRectPath</span><span class="token punctuation">(</span>
+                ctx<span class="token punctuation">,</span>
+                x <span class="token operator">-</span> border<span class="token punctuation">,</span>
+                y <span class="token operator">-</span> border<span class="token punctuation">,</span>
+                width <span class="token operator">+</span> border <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">,</span>
+                height <span class="token operator">+</span> border <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">,</span>
+                radius
+			<span class="token punctuation">)</span>
+            ctx<span class="token punctuation">.</span><span class="token function">fill</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>backgroundColor<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            ctx<span class="token punctuation">.</span><span class="token function">setFillStyle</span><span class="token punctuation">(</span>backgroundColor<span class="token punctuation">)</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">canvasToDrawArcRectPath</span><span class="token punctuation">(</span>ctx<span class="token punctuation">,</span> x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> width<span class="token punctuation">,</span> height<span class="token punctuation">,</span> radius<span class="token punctuation">)</span>
+            ctx<span class="token punctuation">.</span><span class="token function">fill</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>url<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            ctx<span class="token punctuation">.</span><span class="token function">save</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">canvasToDrawArcRectPath</span><span class="token punctuation">(</span>ctx<span class="token punctuation">,</span> x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> width<span class="token punctuation">,</span> height<span class="token punctuation">,</span> radius<span class="token punctuation">)</span>
+
+            ctx<span class="token punctuation">.</span><span class="token function">clip</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+            <span class="token keyword">const</span> <span class="token punctuation">{</span> path<span class="token operator">:</span> tempImageUrl <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">uniGetImageInfoSync</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+            ctx<span class="token punctuation">.</span><span class="token function">drawImage</span><span class="token punctuation">(</span>tempImageUrl<span class="token punctuation">,</span> x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> width<span class="token punctuation">,</span> height<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+
+        ctx<span class="token punctuation">.</span><span class="token function">restore</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="绘制单、多行文字"><a href="#绘制单、多行文字" class="header-anchor">#</a> 绘制单、多行文字</h2> <p>通常来说，海报会出现多行的文字。但 canvas 对文字排版的支持很弱，使我们没办法像使用 CSS 排版一样愉快的使用 canvas 进行文字排版。canvas 绘制文字时，只会一股脑的在单行上一直画下去而不会根据容器宽度自动换行。</p> <p>好在 canvas 中提供了<code>CanvasContext.measureText(string text)返回文本宽度</code>的接口。因此，我们只需要把文字逐个计算宽度并绘制，主要步骤如下：</p> <ol><li>计算当前文字加下一个文字的文本宽度</li> <li>文本宽度未超出容器宽度，则继续加入下一个文字的文本宽度</li> <li>当文本宽度大于最大宽度时, 在画布上绘制被填充的文本</li> <li>每绘制完一行，则根据设定的<code>lineHeight</code>更新文本绘制的 y 轴，重置当前文字，继续重复 1、2、3 的步骤。</li></ol> <p>需要注意的是，canvas 绘制文字有自己的基准规则，在不同系统设备上各个基准都不太一样，导致文本在不同设备上 y 轴的位置都不一样。唯独 <code>middel</code> 的样式在各个平台上表现是一致的，所以我们可以设置<code>ctx.textBaseline = 'middle'</code>，再给文本的 y 轴增加<code>fontSize / 2</code>的高度，就可以保证在各个平台上文本 y 轴和设计稿保持一致。<strong>这个处理方法来来自 <a href="https://juejin.cn/post/6844903870276206606#heading-19" target="_blank" rel="noopener noreferrer">2dunn 如何用 canvas 绘制文字段落<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></strong>。</p> <p><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-dc2b4a8f-6ab2-47b5-b744-f0c5745aa5c0/1b45a608-01d1-46d8-aac7-49c4d6984b73.jpg" alt="文本绘制"></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 绘制文字</span>
+<span class="token function">canvasToDrawText</span><span class="token punctuation">(</span><span class="token parameter">ctx<span class="token punctuation">,</span> canvasParam</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> <span class="token punctuation">{</span>
+        x<span class="token punctuation">,</span>
+        y<span class="token punctuation">,</span>
+        text<span class="token punctuation">,</span>
+        fontWeight <span class="token operator">=</span> <span class="token string">'normal'</span><span class="token punctuation">,</span>
+        fontSize <span class="token operator">=</span> <span class="token number">40</span><span class="token punctuation">,</span>
+        lineHeight<span class="token punctuation">,</span>
+        maxWidth<span class="token punctuation">,</span>
+        textAlign <span class="token operator">=</span> <span class="token string">'left'</span><span class="token punctuation">,</span>
+        color <span class="token operator">=</span> <span class="token string">'#323233'</span>
+    <span class="token punctuation">}</span> <span class="token operator">=</span> canvasParam
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> text <span class="token operator">!==</span> <span class="token string">'string'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span>
+    <span class="token punctuation">}</span>
+
+    ctx<span class="token punctuation">.</span>font <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">normal </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>fontWeight<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>fontSize<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">px sans-serif</span><span class="token template-punctuation string">`</span></span>
+
+    ctx<span class="token punctuation">.</span><span class="token function">setFillStyle</span><span class="token punctuation">(</span>color<span class="token punctuation">)</span>
+    ctx<span class="token punctuation">.</span>textBaseline <span class="token operator">=</span> <span class="token string">'middle'</span>
+    ctx<span class="token punctuation">.</span><span class="token function">setTextAlign</span><span class="token punctuation">(</span>textAlign<span class="token punctuation">)</span>
+
+    <span class="token keyword">function</span> <span class="token function">drawLineText</span><span class="token punctuation">(</span><span class="token parameter">lineText<span class="token punctuation">,</span> __y</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">let</span> __lineText <span class="token operator">=</span> lineText
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>__lineText<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">===</span> <span class="token string">' '</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            __lineText <span class="token operator">=</span> __lineText<span class="token punctuation">.</span><span class="token function">substr</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+        ctx<span class="token punctuation">.</span><span class="token function">fillText</span><span class="token punctuation">(</span>__lineText<span class="token punctuation">,</span> x<span class="token punctuation">,</span> __y <span class="token operator">+</span> fontSize <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>maxWidth<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> arrayText <span class="token operator">=</span> text<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span>
+
+        <span class="token keyword">let</span> lineText <span class="token operator">=</span> <span class="token string">''</span>
+        <span class="token keyword">let</span> __y <span class="token operator">=</span> y
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> index <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> index <span class="token operator">&lt;</span> arrayText<span class="token punctuation">.</span>length<span class="token punctuation">;</span> index<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">const</span> aryTextItem <span class="token operator">=</span> arrayText<span class="token punctuation">[</span>index<span class="token punctuation">]</span>
+            lineText <span class="token operator">+=</span> aryTextItem
+            <span class="token comment">/**
+           * 1. 计算当前文字加下一个文字的文本宽度
+           * 2. 当文本宽度大于最大宽度时, 在画布上绘制被填充的文本
+           * 3. __y + fontSize / 2 的问题
+           * 4. 设置下一行文本的 y轴位置, 重置当前文本信息
+           */</span>
+            <span class="token keyword">const</span> <span class="token punctuation">{</span> width<span class="token operator">:</span> textMetrics <span class="token punctuation">}</span> <span class="token operator">=</span> ctx<span class="token punctuation">.</span><span class="token function">measureText</span><span class="token punctuation">(</span>
+                lineText <span class="token operator">+</span> <span class="token punctuation">(</span>arrayText<span class="token punctuation">[</span>index <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">??</span> <span class="token string">''</span><span class="token punctuation">)</span>
+                           <span class="token punctuation">)</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>textMetrics <span class="token operator">&gt;</span> maxWidth<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token comment">// 绘制一行文字, 如果第一个文字是空格，则删除</span>
+                <span class="token function">drawLineText</span><span class="token punctuation">(</span>lineText<span class="token punctuation">,</span> __y<span class="token punctuation">)</span>
+                __y <span class="token operator">+=</span> lineHeight <span class="token operator">??</span> fontSize
+                lineText <span class="token operator">=</span> <span class="token string">''</span>
+            <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+            <span class="token comment">// 绘制最后一行文字, 如果第一个文字是空格，则删除</span>
+            <span class="token function">drawLineText</span><span class="token punctuation">(</span>lineText<span class="token punctuation">,</span> __y<span class="token punctuation">)</span>
+            <span class="token keyword">return</span>
+        <span class="token punctuation">}</span>
+        ctx<span class="token punctuation">.</span><span class="token function">fillText</span><span class="token punctuation">(</span>text<span class="token punctuation">,</span> x<span class="token punctuation">,</span> y <span class="token operator">+</span> fontSize <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+</code></pre></div><h2 id="绘制海报并生成图片临时文件地址"><a href="#绘制海报并生成图片临时文件地址" class="header-anchor">#</a> 绘制海报并生成图片临时文件地址</h2> <p>在绘制海报并生成图片临时文件地址过程中，绘制图片是有一个<em>异步的获取图片信息</em>的过程。因此，为了确保所有需要的元素都能绘制完，我们需要让<em>绘制过程同步执行下去</em>。确保所有元素都绘制完成后，才能调用<code>CanvasContext.draw</code>方法。</p> <p><code>CanvasContext.draw</code>绘制完后，我们再调用<code>uni.canvasToTempFilePath</code>把当前画布指定区域的内容导出海报图片临时地址。需要注意的是，在自定义组件下，需要在<strong>第三个参数上绑定当前组件实例的 this</strong>，以操作组件内 canvas 组件</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 绘制 canvas</span>
+<span class="token function">canvasToDraw</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token parameter">resolve</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> <span class="token punctuation">[</span>ctx<span class="token punctuation">,</span> canvasId<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">createCanvasContext</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">const</span> <span class="token punctuation">{</span> width<span class="token punctuation">,</span> height<span class="token punctuation">,</span> backgroundImageUrl<span class="token punctuation">,</span> backgroundColor <span class="token punctuation">}</span> <span class="token operator">=</span>
+              <span class="token keyword">this</span><span class="token punctuation">.</span>posterParams
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>backgroundColor<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">canvasToDrawBlock</span><span class="token punctuation">(</span>ctx<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+                x<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+                y<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+                width<span class="token punctuation">,</span>
+                height<span class="token punctuation">,</span>
+                backgroundColor
+            <span class="token punctuation">}</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment">// 绘制背景图</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>backgroundImageUrl<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">const</span> <span class="token punctuation">{</span> path<span class="token operator">:</span> tempBackgroundImageUrl <span class="token punctuation">}</span> <span class="token operator">=</span>
+                  <span class="token keyword">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">uniGetImageInfoSync</span><span class="token punctuation">(</span>backgroundImageUrl<span class="token punctuation">)</span>
+            ctx<span class="token punctuation">.</span><span class="token function">drawImage</span><span class="token punctuation">(</span>tempBackgroundImageUrl<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> width<span class="token punctuation">,</span> height<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment">// 绘制其他元素</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> canvasParam <span class="token keyword">of</span> <span class="token keyword">this</span><span class="token punctuation">.</span>posterParams<span class="token punctuation">.</span>list<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">const</span> <span class="token punctuation">{</span> type <span class="token punctuation">}</span> <span class="token operator">=</span> canvasParam
+
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>type <span class="token operator">===</span> <span class="token string">'text'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">canvasToDrawText</span><span class="token punctuation">(</span>ctx<span class="token punctuation">,</span> canvasParam<span class="token punctuation">)</span>
+            <span class="token punctuation">}</span>
+
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>type <span class="token operator">===</span> <span class="token string">'block'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">canvasToDrawBlock</span><span class="token punctuation">(</span>ctx<span class="token punctuation">,</span> canvasParam<span class="token punctuation">)</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+
+        ctx<span class="token punctuation">.</span><span class="token function">draw</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+            <span class="token keyword">const</span> <span class="token punctuation">{</span> tempFilePath <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">canvasToTempFilePath</span><span class="token punctuation">(</span>canvasId<span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+            <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">[</span>canvasId<span class="token punctuation">,</span> tempFilePath<span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// canvas 导出图片临时地址</span>
+<span class="token function">canvasToTempFilePath</span><span class="token punctuation">(</span><span class="token parameter">canvasId<span class="token punctuation">,</span> params</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        uni<span class="token punctuation">.</span><span class="token function">canvasToTempFilePath</span><span class="token punctuation">(</span>
+            <span class="token punctuation">{</span>
+                canvasId<span class="token punctuation">,</span>
+                fileType<span class="token operator">:</span> <span class="token string">'jpg'</span><span class="token punctuation">,</span>
+                <span class="token operator">...</span>params<span class="token punctuation">,</span>
+                success<span class="token operator">:</span> resolve<span class="token punctuation">,</span>
+                fail<span class="token operator">:</span> reject
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token keyword">this</span>
+        <span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="保存临时文件到本地及缓存"><a href="#保存临时文件到本地及缓存" class="header-anchor">#</a> 保存临时文件到本地及缓存</h2> <p>我们的海报可能几个月都不会更换，但现在却每一次点击都要重新绘制一遍。如果海报的内容更丰富一点，那性能差一点的机型就会出现明显的卡顿。虽然微信团队在 19 年对小程序的 Canvas 组件进行了一波渲染性能提升。但我们也不能偷懒，对特点的场景也是要做好优化来提升用户体验的。</p> <p><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-dc2b4a8f-6ab2-47b5-b744-f0c5745aa5c0/fa756780-1fc4-44b8-a21b-82738dae2a21.png" alt="小程序新 Canvas接口公测"></p> <p>既然生成的海报可能几个月都不会更换，那我们完全可以在<strong>第一次绘制完海报后，就把文件存入用户本地缓存</strong>下次直接使用就好。具体的步骤如下：</p> <ol><li>绘制 Canvas 并<em>获取到海报图片临时地址</em>。</li> <li>海报图片临时地址通过<code>uni.getFileSystemManager().saveFile</code>方法存入到用户本地，获取到<em>存储后的文件路径 (本地路径)</em>。</li> <li>将存储后的文件路径 (本地路径)通过<code>uni.setStorageSync</code>存入缓存中，方便判断是否已经生成过该海报。</li></ol> <p>步骤看似很理想，但还是欠缺很多考虑。海报生成一次后，<strong>除非用户手动清除缓存，不然海报图片永远不会更新</strong>、海报参数设置错误，也只能求用户手动清除缓存，不然也无法更新，造成不必要的麻烦。因此，我们希望，海报图存入缓存时，需要有一个<strong>过期时间</strong>、可以<strong>通过接口决定是否直接更新海报</strong>。</p> <p><strong>过期时间</strong>很好解决，存入缓存时把<strong>当前时间戳+过期时间的合</strong>也存入进去。下次取的时候，判断<strong>存入的时间戳是否大于当前时间戳</strong>就知道是否过期了。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> storage <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token function">get</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> <span class="token punctuation">{</span> value<span class="token punctuation">,</span> expires <span class="token punctuation">}</span> <span class="token operator">=</span> uni<span class="token punctuation">.</span><span class="token function">getStorageSync</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>expires <span class="token operator">&amp;&amp;</span> expires <span class="token operator">&lt;</span> Date<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      uni<span class="token punctuation">.</span><span class="token function">removeStorageSync</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span>
+      <span class="token keyword">return</span> <span class="token keyword">undefined</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> value
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function">set</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> value<span class="token punctuation">,</span> expires<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// expires 秒</span>
+    uni<span class="token punctuation">.</span><span class="token function">setStorageSync</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+      value<span class="token punctuation">,</span>
+      expires<span class="token operator">:</span> expires <span class="token operator">?</span> Date<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">+</span> expires <span class="token operator">*</span> <span class="token number">1000</span> <span class="token operator">:</span> <span class="token keyword">undefined</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token punctuation">{</span> storage <span class="token punctuation">}</span>
+</code></pre></div><p><strong>通过接口决定是否直接更新海报</strong>就更好解决了，组件只需要接收一个<strong>disableCache</strong>的值，通过这个值来判断是否需要强制更新就好了。举个栗子：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token operator">&lt;</span>poster
+	<span class="token operator">:</span>xxx<span class="token operator">=</span><span class="token string">&quot;xxx&quot;</span>
+	<span class="token operator">:</span>disable<span class="token operator">-</span>cache<span class="token operator">=</span><span class="token string">&quot;true&quot;</span>
+<span class="token operator">/</span><span class="token operator">&gt;</span>
+
+props<span class="token operator">:</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 海报存入缓存时的 key</span>
+  cacheKey<span class="token operator">:</span> <span class="token punctuation">{</span>
+    type<span class="token operator">:</span> String<span class="token punctuation">,</span>
+    <span class="token keyword">default</span><span class="token operator">:</span> <span class="token string">'cache-poster'</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token comment">// 是否禁用缓存（是否需要强制刷新）</span>
+  disableCache<span class="token operator">:</span> <span class="token punctuation">{</span>
+    type<span class="token operator">:</span> Boolean<span class="token punctuation">,</span>
+    <span class="token keyword">default</span><span class="token operator">:</span> <span class="token boolean">false</span>
+  <span class="token punctuation">}</span>
+  <span class="token operator">...</span>
+<span class="token punctuation">}</span>
+
+methods<span class="token operator">:</span> <span class="token punctuation">{</span>
+  <span class="token function">pageInit</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> posterImage <span class="token operator">=</span> storage<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>cacheKey<span class="token punctuation">)</span>
+    <span class="token comment">// 缓存中存在图片且不禁用缓存（不需要强制刷新）时，不再绘制Canvas</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>posterImage <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span>disableCache<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>posterImage <span class="token operator">=</span> posterImage
+      <span class="token keyword">return</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">// ...绘制海报</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>最后，我们通过微信提供的文件管理器把文件存入用户本地<code>wx.getFileSystemManager()</code>并把回调地址通过自己的<code>storage.set</code>存入到缓存中即可。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> fs <span class="token operator">=</span> wx<span class="token punctuation">.</span><span class="token function">getFileSystemManager</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+fs<span class="token punctuation">.</span><span class="token function">saveFile</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  tempFilePath<span class="token operator">:</span> tempCanvasFilePaths<span class="token punctuation">,</span> <span class="token comment">// 传入一个本地临时文件路径</span>
+  <span class="token function-variable function">success</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">res</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    storage<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>cacheKey<span class="token punctuation">,</span> res<span class="token punctuation">.</span>savedFilePath<span class="token punctuation">,</span> <span class="token number">86400000</span><span class="token punctuation">)</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>posterImage <span class="token operator">=</span> res<span class="token punctuation">.</span>savedFilePath
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>因此，我们完整的步骤如下：</p> <ol><li>缓存中存在图片且不禁用缓存（不需要强制刷新）时：
+<ol><li>直接使用缓存的海报图片地址。</li> <li>不再生成 Canvas 组件。</li> <li>不再往下执行其余步骤。</li></ol></li> <li>缓存中不存在图片或禁用缓存（需要强制更新）时：
+<ol><li>绘制 Canvas 并<em>获取到海报图片临时地址</em>。</li> <li>海报图片临时地址通过<code>uni.getFileSystemManager().saveFile</code>方法存入到用户本地，获取到<em>存储后的文件路径 (本地路径)</em>。</li> <li>将存储后的文件路径 (本地路径)自己的<code>storage.set</code>存入缓存中并设置过期时间，方便判断是否已经生成过该海报或是否需要更新海报。</li></ol></li></ol> <h2 id="保存海报图片到相册"><a href="#保存海报图片到相册" class="header-anchor">#</a> 保存海报图片到相册</h2> <p>这里，我们直接调用微信提供的 api 即可做到保存海报图片到相册。但这里的前提是，用户授权了<strong>保存图片到系统相册</strong>的权限。</p> <p>需要注意的是，当用户首次触发弹出授权保存图片到系统相册弹窗，点击了拒绝授权时，下一次再点击授权都会直接进入 fail 的回调中且不显示授权弹窗。虽然没找到微信官方文档的说明，但也可得知，<strong>授权保存图片到系统相册只会弹窗提醒一次</strong>。所以，再用户拒绝授权后，我们需要在<strong>fail 的回调中手动调起客户端小程序设置界面 uni.openSetting</strong>。</p> <p>需要注意的是，在 fail 回调中直接调用 uni.openSetting 是无效的，因为微信要求：<strong>注意：<a href="https://developers.weixin.qq.com/miniprogram/dev/framework/compatibility.html" target="_blank" rel="noopener noreferrer">2.3.0<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 版本开始，用户发生点击行为后，才可以跳转打开设置页，管理授权信息。<a href="https://developers.weixin.qq.com/community/develop/doc/000cea2305cc5047af5733de751008" target="_blank" rel="noopener noreferrer">详情<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></strong>。为了触发，我们就需要<strong>先弹个模态对话框 uni.showModal 触发用户的点击行为，再调用 uni.openSetting 打开设置界面</strong>。虽然比较麻烦，但这也符合交互逻辑，合情合理。</p> <img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-dc2b4a8f-6ab2-47b5-b744-f0c5745aa5c0/8a799395-ad5d-4f88-904a-ec4d63d0c72c.gif" alt="保存海报图片到相册" style="zoom:50%;"> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 保存图片到相册</span>
+<span class="token function">saveImageToPhotosAlbum</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    uni<span class="token punctuation">.</span><span class="token function">saveImageToPhotosAlbum</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        filePath<span class="token operator">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>posterImage<span class="token punctuation">,</span>
+        <span class="token function-variable function">success</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$emit</span><span class="token punctuation">(</span><span class="token string">'close-overlay'</span><span class="token punctuation">)</span>
+            uni<span class="token punctuation">.</span><span class="token function">showToast</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+                title<span class="token operator">:</span> <span class="token string">'保存图片成功'</span><span class="token punctuation">,</span>
+                duration<span class="token operator">:</span> <span class="token number">2000</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token function">fail</span><span class="token punctuation">(</span><span class="token parameter">err</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">const</span> <span class="token punctuation">{</span> errMsg <span class="token punctuation">}</span> <span class="token operator">=</span> err
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>errMsg <span class="token operator">===</span> <span class="token string">'saveImageToPhotosAlbum:fail auth deny'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                uni<span class="token punctuation">.</span><span class="token function">showModal</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+                    title<span class="token operator">:</span> <span class="token string">'保存失败'</span><span class="token punctuation">,</span>
+                    content<span class="token operator">:</span> <span class="token string">'请授权保存图片到“相册”的权限'</span><span class="token punctuation">,</span>
+                    <span class="token function-variable function">success</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">result</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+                        <span class="token keyword">const</span> <span class="token punctuation">{</span> confirm <span class="token punctuation">}</span> <span class="token operator">=</span> result
+                        <span class="token keyword">if</span> <span class="token punctuation">(</span>confirm<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                            uni<span class="token punctuation">.</span><span class="token function">openSetting</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+                        <span class="token punctuation">}</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span><span class="token punctuation">)</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="写在最后"><a href="#写在最后" class="header-anchor">#</a> 写在最后</h2> <p>条条大路通罗马，如果觉得上面的方法实在是太麻烦了。那可以使用微信官方推荐的扩展组件<a href="https://developers.weixin.qq.com/miniprogram/dev/extended/component-plus/wxml-to-canvas.html" target="_blank" rel="noopener noreferrer">wxml-to-canvas<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>在小程序内通过静态模板和样式绘制 canvas ，导出图片，可用于生成分享图等场景。</p> <p>当然了，你也可以选择把生成海报的途径，转移到<strong>web-view</strong>上，那你想怎么弄就怎么弄了（滑稽.jpg）。但缺点也很明显：*web-view 容器会自动铺满整个小程序页面，<strong>个人类型的小程序暂不支持使用。*</strong></p> <p>功能暂时就这些了，如果有什么觉得重要的功能需求，可以在 issue 中提出。后续也可能加入一个可视化操作海报参数的页面。什么时候？下次一定！</p> <p><strong>DEMO <a href="https://github.com/mirai027/uni-poster" target="_blank" rel="noopener noreferrer">Github 仓库地址<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></strong></p> <p><strong>Blog <a href="https://mirai027.github.io/blog/mini-program/uniapp/poster.html" target="_blank" rel="noopener noreferrer">Blog 地址<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></strong></p> <p>小程序太阳码（<strong>只做 demo 演示</strong>）</p> <img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-dc2b4a8f-6ab2-47b5-b744-f0c5745aa5c0/5cf712a8-1c66-4143-87a5-f3cc3ecd44a3.jpg" alt="小程序太阳码" style="zoom:25%;"> <h2 id="参考资料"><a href="#参考资料" class="header-anchor">#</a> 参考资料</h2> <ol><li><a href="https://www.zhangxinxu.com/wordpress/2018/02/canvas-text-break-line-letter-spacing-vertical/" target="_blank" rel="noopener noreferrer">张鑫旭 canvas 文本绘制自动换行、字间距、竖排等实现<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li><a href="https://juejin.cn/post/6844903870276206606#heading-19" target="_blank" rel="noopener noreferrer">2dunn 更优雅地基于 canvas 在前端画海报<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li><a href="https://jelly.jd.com/article/5ea2a4dd10f7500156d49387" target="_blank" rel="noopener noreferrer">fanbox 抽奖锦鲤小程序 2.0 总结<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> （海报图样式）</li></ol> <div class="gitalk-container"><div id="gitalk-container"></div></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">最后更新时间:</span> <span class="time">7/11/2021, 3:39:40 PM</span></div></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.d06e34f2.js" defer></script><script src="/blog/assets/js/2.def54568.js" defer></script><script src="/blog/assets/js/24.787e6f72.js" defer></script><script src="/blog/assets/js/3.c36bd8ae.js" defer></script>
+  </body>
+</html>
